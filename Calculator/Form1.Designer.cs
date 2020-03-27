@@ -384,6 +384,7 @@
             this.MinimumSize = new System.Drawing.Size(286, 424);
             this.Name = "Form1";
             this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyboard);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyboard);
             this.tableLayoutPanel1.ResumeLayout(false);
