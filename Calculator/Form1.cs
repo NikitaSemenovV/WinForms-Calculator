@@ -48,7 +48,7 @@ namespace Calculator
 
         private void div()
         {
-            if (oper != 0) { act /= Convert.ToDouble(num.Text); num.Text = act.ToString(); }
+            if (oper != 0) { if (num.Text == "0") { MessageBox.Show("На ноль делить нельзя!"); return; } act /= Convert.ToDouble(num.Text); num.Text = act.ToString(); }
             else { act = Convert.ToDouble(num.Text); Clipboard.SetText(act.ToString()); num.Text = "0"; }
             oper = 4;
         }
@@ -60,7 +60,9 @@ namespace Calculator
                 case 1: act += Convert.ToDouble(num.Text); oper = 0; break;
                 case 2: act -= Convert.ToDouble(num.Text); oper = 0; break;
                 case 3: act *= Convert.ToDouble(num.Text); oper = 0; break;
-                case 4: act /= Convert.ToDouble(num.Text); oper = 0; break;
+                case 4:
+                    if (num.Text == "0") { MessageBox.Show("На ноль делить нельзя!"); return; }
+                    act /= Convert.ToDouble(num.Text); oper = 0; break;
                 case 0: return;
             }
             num.Text = act.ToString(); Clipboard.SetText(act.ToString()); act = 0; oper = 0;
@@ -99,6 +101,11 @@ namespace Calculator
         }
 
         private void keyboard(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
