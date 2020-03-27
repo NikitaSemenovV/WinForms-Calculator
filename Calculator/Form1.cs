@@ -48,7 +48,7 @@ namespace Calculator
 
         private void div()
         {
-            if (oper != 0) { if (num.Text == "0") { MessageBox.Show("На ноль делить нельзя!"); return; } act /= Convert.ToDouble(num.Text); num.Text = act.ToString(); }
+            if (oper != 0) {  act /= Convert.ToDouble(num.Text); num.Text = act.ToString(); }
             else { act = Convert.ToDouble(num.Text); Clipboard.SetText(act.ToString()); num.Text = "0"; }
             oper = 4;
         }
